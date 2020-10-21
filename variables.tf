@@ -14,4 +14,8 @@ variable "machine_type" {
   type        = string
   description = "This is the machine type for the GKE cluster"
 }
+variable "master_ip" {
+  type        = string
+  description = "This is the IP address for the master node"
+}
 

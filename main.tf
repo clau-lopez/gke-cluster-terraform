@@ -9,6 +9,7 @@ module "gke" {
   application_name = var.application_name
   region           = var.region
   machine_type     = var.machine_type
+  master_ip        = var.master_ip
   vpc_id           = module.network.vpc_id
   subnet_id        = module.network.subnet_id
 }
