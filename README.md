@@ -3,7 +3,7 @@
 ## Deploying infrastructure
 
 ### Authenticate with service account
-In this part is important to create a service account for connecting to GCP Console and can provision the infrastructure
+In this part is important to create a ```service account``` for connecting to GCP Console and can provision the infrastructure
 
 ### Setting variables
 
@@ -20,18 +20,18 @@ terraform init \
 -backend-config="prefix=$PREFIX"
 ```
 
-### Generating plan
+### Generate plan
 
 ``` 
 terraform plan
 ```
 
-### Applying changes
+### Apply changes
 ```
 terraform apply
 ```
 
-### Destroying infrastucture
+### Destroy infrastucture
 
 ```
 terraform destroy
@@ -39,7 +39,7 @@ terraform destroy
 
 ## Connecting to private GKE Cluster
 
-### Connecting to Bastion host
+### Connect to the Bastion host
 
 ```
 gcloud compute ssh {BASTION_HOST_NAME} --zone {REGION_NAME}
@@ -55,7 +55,7 @@ gcloud auth login {ACCOUNT}
 ```
 gcloud container clusters get-credentials {CLUSTER_NAME} --region {REGION_NAME} --project {PROJECT_NAME}
 ```
-## Creating Deployment and Services
+## Create Deployment and Services
 
 Review these example instructions -> https://github.com/colopezfuentes/workloads-kubernetes
 
