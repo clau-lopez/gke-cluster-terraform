@@ -32,3 +32,11 @@ variable "vpc_name" {
   type        = string
   description = "This is vpc name"
 }
+variable "cluster_ipv4_cidr_block" {
+  type        = string
+  description = "This is the CIDR block to Cluster"
+}
+variable "services_ipv4_cidr_block" {
+  type        = string
+  description = "This is the CIDR block to Services"
+}

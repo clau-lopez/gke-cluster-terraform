@@ -11,14 +11,12 @@ resource "google_container_cluster" "gke-cluster" {
     cidr_blocks {
       display_name = "bastion-host"
       cidr_block   = format("%s/32", google_compute_instance.bastion-host.network_interface.0.network_ip)
-
-
     }
   }
 
   ip_allocation_policy {
-    cluster_ipv4_cidr_block  = "10.1.0.0/21"
-    services_ipv4_cidr_block = "10.4.0.0/19"
+    cluster_ipv4_cidr_block  = var.cluster_ipv4_cidr_block
+    services_ipv4_cidr_block = var.services_ipv4_cidr_block
   }
 
   private_cluster_config {
@@ -52,7 +50,7 @@ resource "google_container_node_pool" "node-pool" {
 
 # Allow access to the Bastion Host via SSH
 resource "google_compute_firewall" "bastion-ssh" {
-  name          = "myapp-bastion-ssh"
+  name          = "${var.application_name}-bastion-ssh"
   network       = var.vpc_name
   direction     = "INGRESS"
   source_ranges = ["0.0.0.0/0"]
@@ -68,7 +66,7 @@ data "template_file" "startup_script" {
   template = <<-EOF
   sudo apt-get update -y
   sudo apt-get install kubectl
-  sudo apt-get install git
+  sudo apt-get --assume-yes install git
 
   EOF
 

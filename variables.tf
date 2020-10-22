@@ -19,3 +19,12 @@ variable "master_ip" {
   description = "This is the IP address for the master node"
 }
 
+variable "cluster_ipv4_cidr_block" {
+  type        = string
+  description = "This is the CIDR block to Cluster"
+}
+variable "services_ipv4_cidr_block" {
+  type        = string
+  description = "This is the CIDR block to Services"
+}
+
