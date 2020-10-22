@@ -23,3 +23,12 @@ variable "master_ip" {
   type        = string
   description = "This is the IP address for the master node"
 }
+variable "subnet_name" {
+  type        = string
+  description = "This is subnet name used for the VPC"
+}
+
+variable "vpc_name" {
+  type        = string
+  description = "This is vpc name"
+}
