@@ -2,7 +2,10 @@
 
 ## Deploying infrastructure
 
-### Settting variables
+### Authenticate with service account
+In this part is important to create a service account for connecting to GCP Console and can provision the infrastructure
+
+### Setting variables
 
 ```
 export GOOGLE_APPLICATION_CREDENTIALS={SERVICE_ACCOUNT_JSON}
